@@ -1,10 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
-
+import { InicioComponent } from './pagina/inicio/inicio.component';
+import { LoginComponent } from './pagina/login/login.component';
+import { RegistroComponent } from './pagina/registro/registro.component';
+import { CategoriasComponent } from './pagina/categorias/categorias.component';
+import { BuscarComponent } from './pagina/buscar/buscar.component';
+import { CarritoComponent } from './pagina/carrito/carrito.component';
+import { ListarProductosComponent } from './pagina/listar-productos/listar-productos.component';
+import { MediosDePagoComponent } from './pagina/medios-de-pago/medios-de-pago.component';
+const routes: Routes = [
+{ path: "", component: InicioComponent },
+{ path: "login", component: LoginComponent },
+{ path: "registro", component: RegistroComponent },
+{path: "Categorias",component:CategoriasComponent},
+{path:"Carrito",component:CarritoComponent},
+{path:"Buscar",component:BuscarComponent},
+{path:"Listar-productos",component:ListarProductosComponent},
+{path:"Medios-de-pago",component:MediosDePagoComponent},
+{ path: "**", pathMatch: "full", redirectTo: "" }
+];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+imports: [RouterModule.forRoot(routes)],
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

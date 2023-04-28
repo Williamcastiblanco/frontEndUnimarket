@@ -1,0 +1,166 @@
+* {
+    margin: 0px;
+    padding: 0px
+}
+
+.main {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(216, 213, 213);
+}
+
+.topBar {
+    padding: 5px;
+    background-color: #600707;
+    width: 100%;
+    border: 4px solid  #600707;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+}
+
+#logo{
+    width: 157px;
+    height: 150px;
+
+}
+.topBar h1{
+    margin-top: 50px;
+    margin-left: -10px;
+    position: relative;
+    font-size: 50px;
+    color: red;
+}
+
+.iniciaSesion{
+    font-size: 30px;
+    border-radius: 10px;
+    border-color: gray;
+    position: relative;
+    width: 600px;
+    height: 420px;
+    margin: auto;
+    background-color: white;
+    top: -140px;
+}
+
+
+.titulo{
+    position: relative;
+    top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.midlebar{
+    position: relative;
+    top: 35px;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: 20px;
+    width: 600px;
+}
+
+.ingrese{
+    position: relative;
+    top: 40px;
+    display: flex;
+    justify-content: center;
+    width:600
+}
+
+
+.ingrese form input {
+border-radius: 10px;
+color: #600707;
+border-color: #600707;
+font-size: 30px;
+text-align: center;
+
+}
+
+
+.botonContinuar{
+margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    width: 600px;
+}
+
+.botonCrearCuenta{
+    margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        width: 600px;
+    }
+
+    #continuar{
+        color: white;
+        background-color: #600707;
+        width: 200px;
+        height: 35px;
+        font-weight: 700;
+        font-size: 20px;
+        border-bottom: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 1px 1px black;
+        cursor: pointer;
+    }
+    
+    #crearCuenta{
+        border: none;
+        color: #600707;
+        background-color:white;
+        width: 150px;
+        height: 30px;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+
+.botonesGoogle{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 600px;
+}
+#google{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    color: rgb(0, 0, 0);
+    background-color: #b3b3b3;
+    width: 180px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#google img{
+    border-radius: 50%;
+}
+
+
+#face{
+    margin-left: 20px; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: #1a87e0;
+    width: 180px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
