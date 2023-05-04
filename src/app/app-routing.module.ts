@@ -8,6 +8,7 @@ import { BuscarComponent } from './pagina/buscar/buscar.component';
 import { CarritoComponent } from './pagina/carrito/carrito.component';
 import { ListarProductosComponent } from './pagina/listar-productos/listar-productos.component';
 import { MediosDePagoComponent } from './pagina/medios-de-pago/medios-de-pago.component';
+import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
 const routes: Routes = [
 { path: "", component: InicioComponent },
 { path: "login", component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
 {path:"Buscar",component:BuscarComponent},
 {path:"Listar-productos",component:ListarProductosComponent},
 {path:"Medios-de-pago",component:MediosDePagoComponent},
+{path: "crear-producto",component:CrearProductoComponent},
 { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 @NgModule({
