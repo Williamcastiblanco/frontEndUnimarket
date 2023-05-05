@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,7 @@ import { CarritoComponent } from './pagina/carrito/carrito.component';
 import { BuscarComponent } from './pagina/buscar/buscar.component';
 import { MediosDePagoComponent } from './pagina/medios-de-pago/medios-de-pago.component';
 import { ListarProductosComponent } from './pagina/listar-productos/listar-productos.component';
+import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { ListarProductosComponent } from './pagina/listar-productos/listar-produ
     CarritoComponent,
     BuscarComponent,
     MediosDePagoComponent,
-    ListarProductosComponent
+    ListarProductosComponent,
+    CrearProductoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
