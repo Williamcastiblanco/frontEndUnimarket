@@ -1,1 +1,57 @@
 <p>crear-producto works!</p>
+<form >
+    <div>
+        <label >Nombre: </label>
+        <input type="text" />
+    </div>
+    
+    <div>
+        <label >Descripcion: </label>
+        <input type="text" />
+    </div>
+
+    <div>
+        <label >Precio: </label>
+        <input type="number" />
+    </div>
+
+    <div>
+        <label >Unidades: </label>
+        <input type="number" />
+    </div>
+
+    <div>
+        <label >Imagen: </label>
+        <!-- <input type="file" />-->
+        <input type="file" (change)="onFileChange($event)" multiple />
+    </div>
+
+    <div>
+        <label >Categoría: </label>
+        <!-- Forma de quemar los datos en las opciones
+            <select >
+                <option value="0" selected >Seleccione una categoría</option>
+                <option value="1" >Tecnología</option>
+                <option value="2" >Hogar</option>
+                <option value="3" >Deportes</option>
+                <option value="4" >Moda</option>
+                <option value="5" >Mascotas</option>
+            </select>
+        -->
+
+        <!-- se puede observar que en una sola etiqueta
+        option se hace uso de ngFor el cual es una estructura de repetición que recorre todos los
+        elementos de la lista de categorias.
+        El ngFor es como un for each, se tiene un item que toma el
+        valor de cada elemento de la lista y se usa dicho item para poner el texto en el option, además se
+        hace uso de una variable i (índice) para usarlo como valor de cada option, el uso del índice no es
+        obligatorio pero puede llegar a ser útil.
+        -->
+        <select >
+            <option value="" selected >Seleccione una categoría</option>
+            <option [value]="i+1" *ngFor="let item of categorias; index as i" >{{item}}</option>
+        </select>
+    </div>
+
+    <button type="submit" >Crear nuevo producto</button>
+</form>
