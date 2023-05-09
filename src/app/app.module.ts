@@ -9,9 +9,9 @@ import { RegistroComponent } from './pagina/registro/registro.component';
 import { CategoriasComponent } from './pagina/categorias/categorias.component';
 import { CarritoComponent } from './pagina/carrito/carrito.component';
 import { BuscarComponent } from './pagina/buscar/buscar.component';
-import { MediosDePagoComponent } from './pagina/medios-de-pago/medios-de-pago.component';
 import { ListarProductosComponent } from './pagina/listar-productos/listar-productos.component';
 import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
+import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,9 @@ import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.c
     CategoriasComponent,
     CarritoComponent,
     BuscarComponent,
-    MediosDePagoComponent,
     ListarProductosComponent,
-    CrearProductoComponent
+    CrearProductoComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

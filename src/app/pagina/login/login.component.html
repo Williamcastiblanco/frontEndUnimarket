@@ -1,31 +1,38 @@
 <div class="main">
-    <div class="topBar">
-        <img id="logo" src="assets/imagenes/logo.PNG" alt="logo">
-        <h1>Unimarket</h1>
-    </div>
-    <div class="iniciaSesion ">
+
+    <div class="card p-4" >
+
         <div class="titulo">
             <h1>¡Inicia sesión!</h1>
         </div>
-        <div class="midlebar">
-            <h3>Ingresa tu email: </h3>
-        </div>
-        <div class="ingrese">
-            <form>
-                <input type="text">
-            </form>
-        </div>
+
+        <div class="iniciaSesion ">
         
-        
-        <div class="botonContinuar">
-            <button  onclick="window.location.href='index copy.html'" id="continuar">Continuar</button>
+            <div class="mb-3 row">
+                <label class="col-sm-4 col-form-label">Email: </label>
+                <div class="col-sm-8">
+                    <input type="text"  />
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-4 col-form-label">Contraseña: </label>
+                <div class="col-sm-8">
+                    <input type="text" />
+                </div>
+            </div>
+            
+            <div class="botonContinuar">
+                <button  onclick="window.location.href='index copy.html'" id="continuar">Continuar</button>
+            </div>
+            <div class="botonCrearCuenta">
+            <button  onclick="window.location.href='index copy.html'" id="crearCuenta">Crear cuenta</button>
+            </div>
+            <div class="botonesGoogle">
+                <button  onclick="window.location.href='index copy.html'" id="google"> <img src="assets/imagenes/google.png" width="20" height="20" alt=""> Continuar con google</button>
+                <BUtton  onclick="window.location.href='index copy.html'" id="face"> <img src="assets/imagenes/face (2).png" width="20" height="20" alt=""> Continuar con facebook</BUtton>
+            </div>
         </div>
-        <div class="botonCrearCuenta">
-        <button  onclick="window.location.href='index copy.html'" id="crearCuenta">Crear cuenta</button>
-        </div>
-        <div class="botonesGoogle">
-            <button  onclick="window.location.href='index copy.html'" id="google"> <img src="assets/imagenes/google.png" width="20" height="20" alt=""> Continuar con google</button>
-            <BUtton  onclick="window.location.href='index copy.html'" id="face"> <img src="assets/imagenes/face (2).png" width="20" height="20" alt=""> Continuar con facebook</BUtton>
-        </div>
+
     </div>
+
 </div>
