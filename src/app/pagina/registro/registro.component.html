@@ -1,14 +1,12 @@
 <div class="card p-5">
     <form #f="ngForm" (ngSubmit)="registrar()">
     <div class="mb-3 row">
-    <label class="col-sm-2 col-form-label" >Nombre: </label>
-    <div class="col-sm-10">
-    <input #nombre="ngModel" class="form-control" [ngClass]="nombre.invalid &&
-    
-    (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre"
-    [(ngModel)]="usuario.nombre" required maxlength="50" />
-    
-    </div>
+        <label class="col-sm-2 col-form-label" >Nombre: </label>
+            <div class="col-sm-10">
+                <input #nombre="ngModel" class="form-control" [ngClass]="nombre.invalid &&
+                (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre"
+                [(ngModel)]="usuario.nombre" required maxlength="50" />
+            </div>
     </div>
     
         <div class="mb-3 row">
