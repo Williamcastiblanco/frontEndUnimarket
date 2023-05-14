@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductoGetDTO } from 'src/app/modelo/ProductoGetDTO';
+import { ProductoService } from 'src/app/servicios/producto.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -9,13 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 export class BusquedaComponent {
 
   textoBusqueda:string;
+  productos:ProductoGetDTO[];
+  filtro:ProductoGetDTO[];
 
-  constructor(private route:ActivatedRoute){
+  constructor(private route:ActivatedRoute, private productoServicio:ProductoService){
     this.textoBusqueda = "";
+    this.productos=this.productoServicio.listar();
+    this.filtro=[];
+
     this.route.params.subscribe(params => {
-    this.textoBusqueda = params['texto'];
-    console.log(this.textoBusqueda);
-    });
+      this.textoBusqueda = params["texto"];
+      this.filtro = this.productos.filter( p =>
+      p.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) );
+      });
     }
 
 }

@@ -14,6 +14,8 @@ import { MediosDePagoComponent } from './pagina/medios-de-pago/medios-de-pago.co
 import { ListarProductosComponent } from './pagina/listar-productos/listar-productos.component';
 import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
 import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
+//import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
+//import { ProductoDetalleComponent } from './pagina/producto-detalle/producto-detalle.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
     MediosDePagoComponent,
     ListarProductosComponent,
     CrearProductoComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    //DetalleProductoComponent,
+   // ProductoDetalleComponent
   ],
   imports: [
     BrowserModule,
