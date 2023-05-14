@@ -11,6 +11,7 @@ import { MediosDePagoComponent } from './pagina/medios-de-pago/medios-de-pago.co
 import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
 import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
 import { DetalleProductoComponent } from './pagina/detalle-producto/detalle-producto.component';
+import { GestionProductosComponent } from './pagina/gestion-productos/gestion-productos.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,7 @@ const routes: Routes = [
 {path:"busqueda/:texto",component:BusquedaComponent},
 {path:"crear-producto",component:CrearProductoComponent},
 {path:"detalle-producto",component:DetalleProductoComponent},
+{path:"gestion-productos",component:GestionProductosComponent},
 { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 @NgModule({
