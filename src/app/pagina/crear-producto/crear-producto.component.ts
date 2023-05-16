@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductoDTO} from 'src/app/modelo/producto-dto';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ActivatedRoute } from '@angular/router';
 
 export class AppModule { }
 @Component({
@@ -17,9 +18,18 @@ export class CrearProductoComponent implements OnInit{
   archivos!:FileList;
   categorias:string[];
   seleccionadas:string[] = [];
-  constructor(){
+  txtBoton: string='Crear Producto';
+  constructor(private route:ActivatedRoute){
   this.categorias = [];
   this.producto=new ProductoDTO;
+  this.route.params.subscribe(params => {
+    this['codigoProducto'] = params["codigo"];
+    let objetoProducto = this['productoService'].obtener(this['codigoProducto']);
+    if(objetoProducto != null){
+    this.producto = objetoProducto;
+    this.txtBoton = 'Editar Producto';
+    }
+    });
   }
   opcionesSeleccionadas = [];
   public crearProducto(){

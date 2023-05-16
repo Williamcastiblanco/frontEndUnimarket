@@ -12,6 +12,11 @@ import { BuscarComponent } from './pagina/buscar/buscar.component';
 import { ListarProductosComponent } from './pagina/listar-productos/listar-productos.component';
 import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
 import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
+import { DetalleProductoComponent } from './pagina/detalle-producto/detalle-producto.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';                          
+import { GestionProductosComponent } from './pagina/gestion-productos/gestion-productos.component';
+import { AlertaComponent } from './pagina/alerta/alerta.component';
+HttpClientModule
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
     BuscarComponent,
     ListarProductosComponent,
     CrearProductoComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    DetalleProductoComponent,
+    GestionProductosComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
