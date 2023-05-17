@@ -23,7 +23,7 @@ export class CrearProductoComponent implements OnInit {
   seleccionadas: string[] = [];
   opcionesSeleccionadas = [];
   txtBoton: string = 'Crear Producto';
-  constructor(private route: ActivatedRoute, private imagenService: ImagenService, private categoriaService: CategoriaService) {
+  constructor(private route: ActivatedRoute, private imagenService: ImagenService, private categoriaService: CategoriaService,private productoService: ProductoService) {
     this.categorias = [];
     this.producto = new ProductoDTO;
     this.route.params.subscribe(params => {
