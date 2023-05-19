@@ -1,27 +1,22 @@
 <div class="card p-5">
 
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://http2.mlstatic.com/D_NQ_937834-MLA69393511417_052023-OO.webp" class="d-block w-100"
-                    alt="...">
+                <img src="..." class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/D_NQ_790622-MLA69393513459_052023-OO.webp" class="d-block w-100"
-                    alt="...">
+                <img src="..." class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/D_NQ_807444-MLA54784979760_032023-OO.webp" class="d-block w-100"
-                    alt="...">
+                <img src="..." class="d-block w-100" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -29,22 +24,22 @@
 
     <div class="row">
         <div class="col">
-            <h2>Producto</h2> 
+            <h2>Producto</h2>
         </div>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <div class="col" *ngFor="let item of productos" >
+        <div class="col" *ngFor="let item of productos">
             <div class="card" style="width: 18rem;">
                 <img class="rounded-start" src="{{item.imagenes[0]}}" />
                 <div class="card-body">
-                  <h5 class="card-title">{{item.nombre}}</h5>
-                  <p class="card-text">{{item.descripcion}}</p>
-                  <p class="card-text">{{item.precio}}</p>
-                  <a href="/detalle-producto" class="btn btn-primary">Ver Detalle</a>
+                    <h5 class="card-title">{{item.nombre}}</h5>
+                    <p class="card-text">{{item.descripcion}}</p>
+                    <p class="card-text">{{item.precio}}</p>
+                    <a href="/detalle-producto" class="btn btn-primary">Ver Detalle</a>
                 </div>
-              </div>
+            </div>
         </div>
 
     </div>

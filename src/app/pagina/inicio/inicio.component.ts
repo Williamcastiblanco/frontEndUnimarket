@@ -12,6 +12,10 @@ export class InicioComponent {
   productos:ProductoGetDTO[]=[];
 
   constructor(private productoService:ProductoService){
-    this.productos=this.productoService.listar();
+    this.productoService.listar().subscribe({
+      next: data => {
+        this.productos = data.respuesta;
+      }
+    })
   }
 }

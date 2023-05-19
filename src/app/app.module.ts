@@ -13,9 +13,13 @@ import { ListarProductosComponent } from './pagina/listar-productos/listar-produ
 import { CrearProductoComponent } from './pagina/crear-producto/crear-producto.component';
 import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
 import { DetalleProductoComponent } from './pagina/detalle-producto/detalle-producto.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';                          
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';    
+
+//import { HttpClientModule } from '@angular/common/http';
 import { GestionProductosComponent } from './pagina/gestion-productos/gestion-productos.component';
 import { AlertaComponent } from './pagina/alerta/alerta.component';
+import { RevisarProductosComponentComponent } from './pagina/revisar-productos-component/revisar-productos-component.component';
+import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
 HttpClientModule
 
 @NgModule({
@@ -32,14 +36,16 @@ HttpClientModule
     BusquedaComponent,
     DetalleProductoComponent,
     GestionProductosComponent,
-    AlertaComponent
+    AlertaComponent,
+    RevisarProductosComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: UsuarioInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

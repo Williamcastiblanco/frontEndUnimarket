@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Alerta } from 'src/app/modelo/alerta';
+import { SesionDTO } from 'src/app/modelo/sesion-dto';
 import { TokenDTO } from 'src/app/modelo/token-dto';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -12,9 +13,9 @@ import { TokenService } from 'src/app/servicios/token.service';
 
 export class LoginComponent {
   alerta!:Alerta;
+  loginUser :SesionDTO ;
   constructor(public authService:AuthService, public tokenService:TokenService){
-    this.authService= this.authService;
-    this.tokenService=this.tokenService
+    this.loginUser = new SesionDTO();
   }
 
   public login(){

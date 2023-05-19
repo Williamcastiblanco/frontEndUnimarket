@@ -12,21 +12,25 @@ export class ProductoService {//Preguntar como Dado que el código del usuario e
   //función crear() del productoService. Por ahora lo dejamos quemado, luego deberá asignarse
   //el código del usuario dado el token de sesión.
   private authURL = "http://localhost:8080/api/productos";
-  constructor(private http:HttpClient) {}
+  productos:ProductoGetDTO[] = [];
+  
+  constructor(private http:HttpClient) {
+    this.productos = [];}
+
+
   public crear(producto:ProductoDTO): Observable<MensajeDTO> {
     return this.http.post<MensajeDTO>(`${this.authURL}/crear-producto`, producto);
   }
 
- // public listar(producto:ProductoDTO) :Observable<MensajeDTO>{
-   // return this.http.post<MensajeDTO>(`${this.authURL}/listar-producto`, producto);
- // }
-   // return MensajeDTO; 
-    //}
-    //public obtener(id:number):ProductoGetDTO | undefined{
+  public listar() :Observable<MensajeDTO>{
+    return this.http.get<MensajeDTO>(`${this.authURL}/listar-producto`);
+  }
+
+    public obtener(id:number):ProductoGetDTO | undefined{
       
-     // return this.productos.find(i => i.codigo == id);
-      //}
- // this.productos = [];
+      return this.productos.find(i => i.codigo == id);
+    }
+ // 
   // this.productos.push(new ProductoGetDTO(1, "Televisor LG 4K", "Descripcion 1", 3500000, 2,
    //["https://picsum.photos/450/225", "https://picsum.photos/450/225"], ["TECNOLOGIA"]));
    //this.productos.push(new ProductoGetDTO(2, "Tenis Nike", "Descripcion 2", 650000, 4,

@@ -11,13 +11,17 @@ export class GestionProductosComponent implements OnInit {
   productos: ProductoGetDTO[];
   seleccionados: ProductoGetDTO[];
   textoBtnEliminar: string = "";
-  constructor(private productoServicio: ProductoService) {
+  constructor(private productoService: ProductoService) {
     this.productos = [];
     this.seleccionados=[];
     this.textoBtnEliminar="";
   }
   ngOnInit(): void {
-    this.productos = this.productoServicio.listar();
+    this.productoService.listar().subscribe({
+      next: data => {
+        this.productos = data.respuesta;
+      }
+    })
   }
   public seleccionar(producto: ProductoGetDTO, estado: boolean) {
     if (estado) {

@@ -23,14 +23,19 @@ export class CrearProductoComponent implements OnInit {
   seleccionadas: string[] = [];
   opcionesSeleccionadas = [];
   txtBoton: string = 'Crear Producto';
+  codigoProducto:number = 0;
+  esEdicion: boolean = false;
+
+
   constructor(private route: ActivatedRoute, private imagenService: ImagenService, private categoriaService: CategoriaService,private productoService: ProductoService) {
     this.categorias = [];
     this.producto = new ProductoDTO;
     this.route.params.subscribe(params => {
-      this['codigoProducto'] = params["codigo"];
-      let objetoProducto = this['productoService'].obtener(this['codigoProducto']);
+      this.codigoProducto = params["codigo"];
+      let objetoProducto = this.productoService.obtener(this.codigoProducto);
       if (objetoProducto != null) {
         this.producto = objetoProducto;
+        this.esEdicion = true;
         this.txtBoton = 'Editar Producto';
       }
     });
@@ -38,6 +43,7 @@ export class CrearProductoComponent implements OnInit {
 
   public crearProducto() {
     if (this.producto.imagenes.length > 0) {
+      this.producto.codigoVendedor = 1;
       this.productoService.crear(this.producto).subscribe({
         next: data => {
           console.log(data.respuesta);
