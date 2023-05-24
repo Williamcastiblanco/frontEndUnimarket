@@ -7,29 +7,31 @@
         </div>
 
         <div class="iniciaSesion ">
-            <h1 id="tituloLogin" style="font-size: 50px; font-weight: bold;">¡ Inicia sesión !</h1>
-            <div class="mb-3 row">
-                <label class="col-sm-4 col-form-label">Email: </label>
-                <div class="col-sm-8">
-                    <input type="text"  />
+            <form #f="ngForm" (ngSubmit)="login()">
+                <h1 id="tituloLogin" style="font-size: 50px; font-weight: bold;">¡ Inicia sesión !</h1>
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label ">Email: </label>
+                    <div class="col-sm-8">
+                        <input  style="font-size:20px" name="email" type="text" [(ngModel)]="loginUser.email"  />
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label class="col-sm-4 col-form-label">Contraseña: </label>
-                <div class="col-sm-8">
-                    <input type="text" />
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label ">Contraseña: </label>
+                    <div class="col-sm-8">
+                        <input  style="font-size:20px" name="password" type="password" [(ngModel)]="loginUser.password"  />
+                    </div>
                 </div>
-            </div>
-            
-            <div class="botonContinuar">
-                <button  onclick="window.location.href='index copy.html'" id="continuar">Continuar</button>
-            </div>
+                
+                <div class="botonContinuar">
+                    <button id="continuar">Continuar</button>
+                </div>
+            </form>
             <div class="botonCrearCuenta">
-            <button  onclick="window.location.href='index copy.html'" id="crearCuenta">Crear cuenta</button>
+                <button  onclick="window.location.href='index copy.html'" id="crearCuenta">Crear cuenta</button>
             </div>
             <div class="botonesGoogle">
                 <button  onclick="window.location.href='index copy.html'" id="google"> <img src="assets/imagenes/google.png" width="20" height="20" alt=""> Continuar con google</button>
-                <BUtton  onclick="window.location.href='index copy.html'" id="face"> <img src="assets/imagenes/face (2).png" width="20" height="20" alt=""> Continuar con facebook</BUtton>
+                <button  onclick="window.location.href='index copy.html'" id="face"> <img src="assets/imagenes/face (2).png" width="20" height="20" alt=""> Continuar con facebook</button>
             </div>
         </div>
 

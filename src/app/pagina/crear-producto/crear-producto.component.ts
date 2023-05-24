@@ -16,10 +16,21 @@ export class AppModule { }
 
 
 export class CrearProductoComponent implements OnInit {
+
+  categorias: Categoria[] = [
+    {label:'Tecnologia',name:'TECNOLOGIA',checked:false},
+    {label:'Hogar',name:'HOGAR',checked:false},
+    {label:'Moda',name:'MODA',checked:false},
+    {label:'Mascotas',name:'MASCOTAS',checked:false},
+    {label:'Ropa',name:'ROPA',checked:false},
+    {label:'Deporte',name:'DEPORTE',checked:false}
+    
+  ];
+
   [x: string]: any;
   producto: ProductoDTO;
   archivos!: FileList;
-  categorias: string[];
+ // categorias: string[];
   seleccionadas: string[] = [];
   opcionesSeleccionadas = [];
   txtBoton: string = 'Crear Producto';
@@ -27,9 +38,12 @@ export class CrearProductoComponent implements OnInit {
   esEdicion: boolean = false;
 
 
-  constructor(private route: ActivatedRoute, private imagenService: ImagenService, private categoriaService: CategoriaService,private productoService: ProductoService) {
-    this.categorias = [];
-    this.producto = new ProductoDTO;
+  constructor(private route: ActivatedRoute, private imagenService: ImagenService, 
+    private categoriaService: CategoriaService,private productoService: ProductoService) {
+    //this.categorias = [];
+    this.producto = new ProductoDTO();
+    this.subirImagenes();
+
     this.route.params.subscribe(params => {
       this.codigoProducto = params["codigo"];
       let objetoProducto = this.productoService.obtener(this.codigoProducto);
@@ -56,16 +70,16 @@ export class CrearProductoComponent implements OnInit {
       console.log('Debe seleccionar al menos una imagen y subirla');
     }
   }
-  ngOnInit(): void {
-    this.categoriaService.listar().subscribe({
-      next: data => {
-        this.categorias = data.respuesta;
-      },
-      error: error => {
-        console.log(error.error);
-      }
-    });
-  }
+  //ngOnInit(): void {
+    //this.categoriaService.listar().subscribe({
+      //next: data => {
+        //this.categorias = data.respuesta;
+      //},
+      //error: error => {
+        //console.log(error.error);
+      //}
+    //});
+  //}
 
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
@@ -80,7 +94,14 @@ export class CrearProductoComponent implements OnInit {
     console.log(this.seleccionadas);
   }
 
-  private cargarCategorias() {
+  ngOnInit(): void {
+    console.log(this.producto.categorias);
+    for (let categoria of this.producto.categorias) {
+      let index = this.categorias.findIndex(c => c.name === categoria);
+      if (index !== -1) {
+        this.categorias[index].checked = true;
+      }
+    }
 
   }//se estaban quemando la categoria en ongit preguntar que hacer
 
@@ -101,5 +122,20 @@ export class CrearProductoComponent implements OnInit {
       console.log('Debe seleccionar al menos una imagen y subirla');
     }
   }
+  
+  
+
+  onCategoriasChange() {
+    const names = this.categorias.filter(categoria => categoria.checked).map(categoria => categoria.name);
+    this.producto.categorias = names;
+    console.log(this.producto.categorias);
+  }
 }
+
+interface Categoria {
+  label: string;
+  name: string;
+  checked: boolean;
+}
+
 

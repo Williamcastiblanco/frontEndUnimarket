@@ -11,12 +11,14 @@ export class ProductoService {//Preguntar como Dado que el código del usuario e
  // datos, entonces asígnele un código de un usuario que exista en la base de datos antes de llamar la
   //función crear() del productoService. Por ahora lo dejamos quemado, luego deberá asignarse
   //el código del usuario dado el token de sesión.
-  private authURL = "http://localhost:8080/api/productos";
+  private authURL = "http://localhost:8081/api/productos";
   productos:ProductoGetDTO[] = [];
   
   constructor(private http:HttpClient) {
     this.productos = [];}
 
+
+  
 
   public crear(producto:ProductoDTO): Observable<MensajeDTO> {
     return this.http.post<MensajeDTO>(`${this.authURL}/crear-producto`, producto);
