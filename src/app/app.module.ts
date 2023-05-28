@@ -20,6 +20,7 @@ import { GestionProductosComponent } from './pagina/gestion-productos/gestion-pr
 import { AlertaComponent } from './pagina/alerta/alerta.component';
 import { RevisarProductosComponentComponent } from './pagina/revisar-productos-component/revisar-productos-component.component';
 import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
+import { DomicilioComponent } from './pagina/domicilio/domicilio.component';
 HttpClientModule
 
 @NgModule({
@@ -37,7 +38,8 @@ HttpClientModule
     DetalleProductoComponent,
     GestionProductosComponent,
     AlertaComponent,
-    RevisarProductosComponentComponent
+    RevisarProductosComponentComponent,
+    DomicilioComponent
   ],
   imports: [
     BrowserModule,

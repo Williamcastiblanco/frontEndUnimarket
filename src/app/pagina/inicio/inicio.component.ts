@@ -10,11 +10,21 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 export class InicioComponent {
   
   productos:ProductoGetDTO[]=[];
+  router: any;
 
   constructor(private productoService:ProductoService){
-    this.productoService.listar().subscribe({
-      next: data => {
+    //this.productoService.listar().subscribe({
+      //next: data => {
+        //this.productos = data.respuesta;
+      //}
+    //})
+
+    this.productoService.listarProductos().subscribe({
+      next: data =>{
         this.productos = data.respuesta;
+      },
+      error: err =>{
+        console.log(err.error)
       }
     })
   }

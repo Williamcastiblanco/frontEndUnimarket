@@ -1,28 +1,53 @@
 <div class="card p-5">
     <h1>Crea un producto</h1>
-    <form #f="ngForm" (ngSubmit)="crearProducto()">
+    <form #f="ngForm" >
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Nombre: </label>
             <div class="col-sm-10">
-                <input type="text" name="nombre" [(ngModel)]="producto.nombre" required />
+                <!--<input type="text" name="nombre" [(ngModel)]="producto.nombre" required />-->
+
+                <input #nombre="ngModel" class="form-control" [ngClass]="nombre.invalid &&
+                    (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre"
+                    [(ngModel)]="producto.nombre" required maxlength="50" />
+
+                    
             </div>
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Descripción </label>
             <div class="col-sm-10">
-                <textarea name="descripcion" [(ngModel)]="producto.descripcion" required></textarea>
+                <!--<textarea name="descripcion" [(ngModel)]="producto.descripcion" ></textarea>-->
+
+                <textarea #descripcion="ngModel" class="form-control" [ngClass]="descripcion.invalid &&
+                (descripcion.dirty || descripcion.touched) ? 'is-invalid' : ''" name="descripcion"
+                    [(ngModel)]="producto.descripcion" required></textarea>
             </div>
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Precio </label>
             <div class="col-sm-10">
-                <input type="number" name="precio" [(ngModel)]="producto.precio" required />
+                <!--<input type="number" name="precio" [(ngModel)]="producto.precio" required />-->
+
+                <input #precio="ngModel" class="form-control" [ngClass]="precio.invalid &&
+                (precio.dirty || precio.touched) ? 'is-invalid' : ''" type="number" name="precio"
+                    [(ngModel)]="producto.precio" required />
             </div>
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Unidades: </label>
             <div class="col-sm-10">
-                <input type="number" name="unidades" [(ngModel)]="producto.unidades" required />
+                <!--<input type="number" name="unidades" [(ngModel)]="producto.unidades" required />-->
+
+                <input #unidades="ngModel" class="form-control" [ngClass]="unidades.invalid &&
+                (unidades.dirty || unidades.touched) ? 'is-invalid' : ''" type="number" name="unidades"
+                    [(ngModel)]="producto.unidades" required />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Codigo de Vendedor: </label>
+            <div class="col-sm-10">
+                <input type="number" name="codigoVendedor" [(ngModel)]="producto.codigoVendedor"  />
             </div>
         </div>
 
@@ -55,7 +80,6 @@
         </button>
 
     </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+
+    <app-alerta [alerta]="alerta"></app-alerta>
 </div>

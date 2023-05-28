@@ -12,13 +12,13 @@ export class ProductoService {//Preguntar como Dado que el código del usuario e
   //función crear() del productoService. Por ahora lo dejamos quemado, luego deberá asignarse
   //el código del usuario dado el token de sesión.
   private authURL = "http://localhost:8081/api/productos";
-  productos:ProductoGetDTO[] = [];
+  productos:ProductoGetDTO[];
   
   constructor(private http:HttpClient) {
-    this.productos = [];}
-
-
+    this.productos = [];
   
+  }
+
 
   public crear(producto:ProductoDTO): Observable<MensajeDTO> {
     return this.http.post<MensajeDTO>(`${this.authURL}/crear-producto`, producto);
@@ -31,6 +31,10 @@ export class ProductoService {//Preguntar como Dado que el código del usuario e
     public obtener(id:number):ProductoGetDTO | undefined{
       
       return this.productos.find(i => i.codigo == id);
+    }
+
+    public listarProductos( ): Observable<MensajeDTO> {
+      return this.http.get<MensajeDTO>(`${this.authURL}/listar/productos`);
     }
  // 
   // this.productos.push(new ProductoGetDTO(1, "Televisor LG 4K", "Descripcion 1", 3500000, 2,
@@ -47,8 +51,8 @@ export class ProductoService {//Preguntar como Dado que el código del usuario e
    //["https://picsum.photos/450/225", "https://picsum.photos/450/225"], ["TECNOLOGIA"]));
    //this.productos.push(new ProductoGetDTO(7, "Hwawei 8Pro", "Descripcion 7", 3500000, 7,
    //["https://picsum.photos/450/225", "https://picsum.photos/450/225"], ["TECNOLOGIA"]));
-   //this.productos.push(new ProductoGetDTO(8, "PC GAMER", "Descripcion 8", 5000000, 1,
-   //["https://picsum.photos/450/225", "https://picsum.photos/450/225"], ["TECNOLOGIA"]));
+  // this.productos.push(new ProductoGetDTO(8, "PC GAMER", "Descripcion 8", 5000000, 1,
+  // ["https://picsum.photos/450/225", "https://picsum.photos/450/225"], ["TECNOLOGIA"]));
   //CREE OTROS PRODUCTOS (AL MENOS 6 MÁS)
 
 

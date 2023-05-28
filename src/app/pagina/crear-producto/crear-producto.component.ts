@@ -6,12 +6,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ImagenService } from 'src/app/servicios/imagen.service';
 import { CategoriaService } from 'src/app/servicios/categoria.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { Alerta } from 'src/app/modelo/alerta';
 
 export class AppModule { }
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
-  styleUrls: ['./crear-producto.component.css']
+  styleUrls: ['./crear-producto.component.css'],
 })
 
 
@@ -27,7 +28,6 @@ export class CrearProductoComponent implements OnInit {
     
   ];
 
-  [x: string]: any;
   producto: ProductoDTO;
   archivos!: FileList;
  // categorias: string[];
@@ -36,13 +36,13 @@ export class CrearProductoComponent implements OnInit {
   txtBoton: string = 'Crear Producto';
   codigoProducto:number = 0;
   esEdicion: boolean = false;
+  alerta!: Alerta;
 
 
-  constructor(private route: ActivatedRoute, private imagenService: ImagenService, 
-    private categoriaService: CategoriaService,private productoService: ProductoService) {
+  constructor(private productoService: ProductoService, private route: ActivatedRoute,
+    private imagenService: ImagenService, private categoriaService: CategoriaService) {
     //this.categorias = [];
     this.producto = new ProductoDTO();
-    this.subirImagenes();
 
     this.route.params.subscribe(params => {
       this.codigoProducto = params["codigo"];
@@ -53,6 +53,10 @@ export class CrearProductoComponent implements OnInit {
         this.txtBoton = 'Editar Producto';
       }
     });
+
+    if(this.esEdicion){
+      this.cargarCategorias();
+    }
   }
 
   public crearProducto() {
@@ -81,6 +85,16 @@ export class CrearProductoComponent implements OnInit {
     //});
   //}
 
+  private cargarCategorias() {
+    console.log(this.producto.categorias);
+    for (let categoria of this.producto.categorias) {
+      let index = this.categorias.findIndex(c => c.name === categoria);
+      if (index !== -1) {
+        this.categorias[index].checked = true;
+      }
+    }
+  }
+
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
       const files = event.target.files;
@@ -95,13 +109,13 @@ export class CrearProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.producto.categorias);
-    for (let categoria of this.producto.categorias) {
-      let index = this.categorias.findIndex(c => c.name === categoria);
-      if (index !== -1) {
-        this.categorias[index].checked = true;
-      }
-    }
+    //console.log(this.producto.categorias);
+    //for (let categoria of this.producto.categorias) {
+      //let index = this.categorias.findIndex(c => c.name === categoria);
+      //if (index !== -1) {
+        //this.categorias[index].checked = true;
+      //}
+    //}
 
   }//se estaban quemando la categoria en ongit preguntar que hacer
 

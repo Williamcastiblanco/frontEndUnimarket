@@ -12,10 +12,12 @@ import { BusquedaComponent } from './pagina/busqueda/busqueda.component';
 import { DetalleProductoComponent } from './pagina/detalle-producto/detalle-producto.component';
 import { GestionProductosComponent } from './pagina/gestion-productos/gestion-productos.component';
 import { LoginGuard } from './guards/permiso.service';
+import { DomicilioComponent } from './pagina/domicilio/domicilio.component';
 import { RevisarProductosComponentComponent } from './pagina/revisar-productos-component/revisar-productos-component.component';
 import { RolesGuard } from './guards/roles.service';
 const routes: Routes = [
 { path: "", component: InicioComponent },
+{ path: "domicilio", component: DomicilioComponent},
 { path: "login", component: LoginComponent },
 { path: "registro", component: RegistroComponent },
 {path: "Categorias",component:CategoriasComponent},

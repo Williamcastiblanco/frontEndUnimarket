@@ -6,12 +6,14 @@ import { Observable } from 'rxjs';
 providedIn: 'root'
 })
 export class ImagenService {
-private imgURL = "http://localhost:8081/api/imagenes";
-constructor(private http: HttpClient) { }
-public subir(imagen: FormData): Observable<MensajeDTO> {
-return this.http.post<MensajeDTO>(`${this.imgURL}/upload`, imagen);
-}
-public eliminar(id: string): Observable<MensajeDTO> {
-return this.http.delete<MensajeDTO>(`${this.imgURL}/${id}`);
-}
+    private imgURL = "http://localhost:8081/api/imagenes";
+
+    constructor(private http: HttpClient) { }
+
+    public subir(imagen: FormData): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.imgURL}/subir`, imagen);
+    }
+    public eliminar(id: string): Observable<MensajeDTO> {
+    return this.http.delete<MensajeDTO>(`${this.imgURL}/${id}`);
+    }
 }

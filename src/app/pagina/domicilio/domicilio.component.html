@@ -1,0 +1,55 @@
+<div class="Domicilio ">
+    <h1 id="domicilio" style="font-size: 50px; font-weight: bold; color: white;">¡ Agrega tu direccion !</h1>
+    <form class="row g-3 needs-validation" novalidate>
+
+
+        <div>
+            <label for="quindio" style="color: white;">Selecciona un departamento:</label>
+            <select class="form-select " id="quindio" [(ngModel)]="selectedQuindio">
+                <option value="Quindio">Quindío</option>
+                <option value="Risaralda">Risaralda</option>
+                <option value="Caldas">Caldas</option>
+            </select>
+        </div>
+
+
+
+        <div>
+            <label for="selectDos" style="color: white">Selecciona un municipio:</label>
+            <select class="form-select" id="selectDos" [(ngModel)]="selectedOptions">
+                <option value="Armenia">Armenia</option>
+                <option value="Calarcá">Calarcá</option>
+                <option value="Quimbaya">Quimbaya</option>
+                <option value="Montenegro">Montenegro</option>
+                <option value="Pijao">Pijao</option>
+                <option value="Génova">Génova</option>
+                <option value="La Tebaida">La Tebaida</option>
+                <option value="Filandia">Filandia</option>
+                <option value="Circasia">Circasia</option>
+                <option value="Córdoba">Córdoba</option>
+                <option value="Salento">Salento</option>
+                <option value="Buenavista">Buenavista</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="direccion" class="form-label" style="color: white;">Dirección:</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend"></span>
+                <input type="text" class="form-control" id="direccion" [(ngModel)]="direccion"
+                    aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback" style="color: white;">
+                    Por favor, ingresa una dirección.
+                </div>
+            </div>
+        </div>
+
+
+
+        <button class="btn btn-primary mt-3" (click)="mostrarSeleccion()">Aceptar</button>
+
+        <div class="alert alert-success mt-3" *ngIf="seleccionMostrada" role="alert">
+            <h4 class="alert-heading">Excelente !</h4>
+            <hr>
+            <p>Ahora los productos que solicites a domicilio llegaran a tu direccion </p>
+            <p>departamento {{ selectedQuindio }}</p> <p> Municipio {{ selectedOptions.join(', ') }}</p><p> Direccion {{ direccion }}</p>
+        </div>

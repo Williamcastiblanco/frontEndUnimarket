@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductoDTO } from 'src/app/modelo/producto-dto';
 import { ProductoGetDTO } from 'src/app/modelo/ProductoGetDTO';
 import { ProductoService } from 'src/app/servicios/producto.service';
 
@@ -8,20 +10,32 @@ import { ProductoService } from 'src/app/servicios/producto.service';
   styleUrls: ['./gestion-productos.component.css']
 })
 export class GestionProductosComponent implements OnInit {
+  producto: ProductoDTO;
   productos: ProductoGetDTO[];
   seleccionados: ProductoGetDTO[];
   textoBtnEliminar: string = "";
-  constructor(private productoService: ProductoService) {
+  idUsuario:number;
+  codigoProducto: number = 0;
+  constructor(private route: ActivatedRoute,private productoServicio: ProductoService,private router:Router) {
     this.productos = [];
     this.seleccionados=[];
     this.textoBtnEliminar="";
+    this.idUsuario = 1;
+    this.producto = new ProductoDTO();
+
+    this.productoServicio.listarProductos().subscribe({
+      next: data => {
+
+        this.productos = data.respuesta;
+        console.log("pro: " + this.productos);
+      },
+      error: err => {
+        console.log(err.error);
+      }
+
+    });
   }
   ngOnInit(): void {
-    this.productoService.listar().subscribe({
-      next: data => {
-        this.productos = data.respuesta;
-      }
-    })
   }
   public seleccionar(producto: ProductoGetDTO, estado: boolean) {
     if (estado) {
