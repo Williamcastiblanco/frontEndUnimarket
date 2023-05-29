@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 providedIn: 'root'
 })
 export class ImagenService {
-    private imgURL = "http://localhost:8081/api/imagenes";
+    private imgURL = "backendavanzada-production.up.railway.app/api/imagenes";
 
     constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { UsuarioDTO } from '../modelo/usuario-dto';
 providedIn: 'root'
 })
 export class AuthService {
-private authURL = "http://localhost:8081/api/auth";
+private authURL = "backendavanzada-production.up.railway.app/api/auth";
 constructor(private http:HttpClient) { }
 
 
